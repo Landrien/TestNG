@@ -71,18 +71,18 @@ public class Exercice1_Connexion_Test {
         Assert.assertTrue(verif, "Correct : Il n'y pas eu de connexion !");
     }
 
-    @Test
+    @Test (groups = "Login")
     @Parameters({"username", "password"})
-    public void testLogin(String username, String password) {
+    public void login(String username, String password){
+
+
         driver.get("https://www.saucedemo.com/");
 
-        WebElement userField = driver.findElement(By.id("user-name"));
-        WebElement passField = driver.findElement(By.id("password"));
-        WebElement loginButton = driver.findElement(By.id("login-button"));
 
-        userField.sendKeys(username);
-        passField.sendKeys(password);
-        loginButton.click();
+        driver.findElement(By.id("user-name")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
+        driver.findElement(By.id("login-button")).click();
+
 
         // Attendre l'affichage du logo après connexion
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));

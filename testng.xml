@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="3" name="C:\ProjetJavaFinal\ProjetFinalAvance\TestNG\target\Testng.xml">
+        <groups>
+            <run>
+                <include name="purchase"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Exercice1_Connexion_Test"/>
+            <class name="Exercice3"/>
+        </classes>
+    </test>
+</suite>

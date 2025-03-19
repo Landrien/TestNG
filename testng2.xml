@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="C:/Users/IB/Desktop/DEV  PROJECTs/TestNG">
-        <groups>
-            <run>
-                <include name="connexion"/>
-            </run>
-        </groups>
+<suite name="Suite de Tests" parallel="methods" thread-count="3">
+
+    <test name="Test de Connexion">
+
         <classes>
-            <class name="Exercice1_Connexion_Test"/>
-            <class name="Exercice3"/>
+            <class name="Exercice1_Connexion_Test"/> <!-- Test de connexion réussie -->
         </classes>
     </test>
+
+    <test name="Test Utilisateur Bloqué">
+        <parameter name="username" value="locked_out_user"/>
+        <parameter name="password" value="secret_sauce"/>
+        <classes>
+            <class name="Exercice1_Connexion_Test"/> <!-- Test avec l'utilisateur bloqué -->
+        </classes>
+    </test>
+
+    <test name="Test Achat Produit">
+        <classes>
+            <class name="Exercice3"/> <!-- Test du parcours d'achat -->
+        </classes>
+    </test>
+
 </suite>
