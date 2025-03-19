@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/IB/Desktop/DEV  PROJECTs/TestNG">
+        <groups>
+            <run>
+                <include name="connexion"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="Exercice1_Connexion_Test"/>
+            <class name="Exercice3"/>
+        </classes>
+    </test>
+</suite>
