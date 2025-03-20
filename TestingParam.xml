@@ -3,9 +3,10 @@
 <suite name="LoginTestSuite">
     <test name="LoginTest">
         <parameter name="username" value="standard_user"/>
-        <parameter name="password" value="secret_sauce"/>
+        <parameter name="password" value="secret_sauc"/>
         <classes>
             <class name="Exercice1_Connexion_Test"/>
+            <class name="Exercice3"/>
         </classes>
     </test>
 </suite>

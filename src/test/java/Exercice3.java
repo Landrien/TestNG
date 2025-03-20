@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,20 +13,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class Exercice3 {
+public class Exercice3 extends Base_test {
 
-    WebDriver driver;
-    WebDriverWait wait;
-    @BeforeMethod
-    public void setup() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("https://www.saucedemo.com/");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    }
-
+    private static final Logger logger = LogManager.getLogger(Exercice3.class);
     @Test
-    public void Test1(){
+    public void AchatProduit(){
 
         driver.manage().window().maximize();
         driver.get("https://www.saucedemo.com/");
@@ -39,6 +32,7 @@ public class Exercice3 {
 
         WebElement login = driver.findElement(By.id("login-button"));
         login.click();
+        logger.info("Validation de la connexion");
 
         WebElement logo = driver.findElement(By.className("app_logo"));
         boolean verif = (logo.getText().equals("Swag Labs"));
@@ -52,6 +46,7 @@ public class Exercice3 {
         WebElement produit = driver.findElement(By.className("cart_quantity"));
         boolean verif2 = produit.getText().equals("1");
         Assert.assertTrue(verif2, "Correct : Il y a bien un article");
+        logger.info("Validation de la prise de l'article");
 
         WebElement checkout = driver.findElement(By.id("checkout"));
         checkout.click();
@@ -63,11 +58,14 @@ public class Exercice3 {
         postal_code.sendKeys("28500");
         WebElement Continue = driver.findElement(By.id("continue"));
         Continue.click();
+        logger.info("Validation du formulaire de commande");
+
         WebElement finale = driver.findElement(By.id("finish"));
         finale.click();
         WebElement valid = driver.findElement(By.className("complete-header"));
         boolean verif3 = valid.getText().equals("Thank you for your order!");
         Assert.assertTrue(verif3, "Correct : le texte du logo est correct !");
+        logger.info("Validation de la commande");
 
         WebElement sideBar = driver.findElement(By.id("react-burger-menu-btn"));
         sideBar.click();
@@ -76,12 +74,9 @@ public class Exercice3 {
         WebElement valid2 = driver.findElement(By.className("login_logo"));
         boolean verif4 = valid2.getText().equals("Swag Labs");
         Assert.assertTrue(verif4, "Correct : le texte du logo est correct !");
+        logger.info("Validation de la déconnexion");
 
     }
-/*
-    @AfterMethod
-    public void finset(){
-        driver.quit();
-    }*/
+
 
 }

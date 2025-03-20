@@ -9,7 +9,7 @@
         </groups>
         <classes>
             <class name="Exercice1_Connexion_Test"/>
-            <class name="Exercice3"/>
+                <class name="Exercice3"/>
         </classes>
     </test>
 </suite>
